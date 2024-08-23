@@ -55,7 +55,7 @@ public class App {
                     importe = Long.parseLong(scanner.nextLine());
                     System.out.print("Cuotas: ");
                     int cuotas = Integer.parseInt(scanner.nextLine());
-                    System.out.println(cuenta.simularPrestamo(importe, cuotas));
+                    System.out.println(cuenta.simularCuotaPrestamoSistemaFrances(importe, cuotas));
                     break;
 
                 case "movimientos":
