@@ -6,14 +6,25 @@ import org.junit.jupiter.api.Test;
 class CuentaBancariaTest {
 
 	 //Test cuenta ARS deposito
-	 @Test
-	    void testDepositoArs() {
-		    CuentaBancaria cuenta = new CuentaBancaria();
-	        boolean resultado = cuenta.deposito("ARS", 500L);
-	        assertTrue(resultado);
+	// @Test
+	 // testDepositoArs() {
+	//	    CuentaBancaria cuenta = new CuentaBancaria();
+	 // resultado = cuenta.deposito("ARS", 500L);
+	//(resultado);
+	// saldo = cuenta.saldo("ARS");
+	//(500L, saldo);
+	   // }
+	@Test
+	 void testMenorSaldoARG() {
+		    CuentaBancaria cuenta= new CuentaBancaria();
+	        boolean resultado = cuenta.deposito("ARS",500L);
 	        long saldo = cuenta.saldo("ARS");
-	        assertEquals(500L, saldo);
+	        resultado = cuenta.extraccion("ARS",saldo - 100L);
+		    assertTrue(resultado);
+	         saldo = cuenta.saldo("ARS");
+	        assertEquals(100L, saldo);
 	    }
+		
 	 
 	 //TODO Test cuenta USD deposito
 
