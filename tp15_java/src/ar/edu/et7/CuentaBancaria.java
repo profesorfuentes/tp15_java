@@ -69,6 +69,7 @@ public class CuentaBancaria extends AbstractCuentaBancaria {
 
     @Override
     public long simularCuotaPrestamoSistemaFrances(long importe, int cuotas) {
+    	//La tasa es mensual
         double tasaInteres = 0.05;
         double cuotaMensual = (importe * tasaInteres * Math.pow(1 + tasaInteres, cuotas)) / (Math.pow(1 + tasaInteres, cuotas) - 1);
         return Math.round(cuotaMensual);

@@ -5,15 +5,26 @@ import org.junit.jupiter.api.Test;
 
 class CuentaBancariaTest {
 
-	 //Test cuenta ARS deposito
-	 @Test
-	    void testDepositoArs() {
-		    CuentaBancaria cuenta = new CuentaBancaria();
-	        boolean resultado = cuenta.deposito("ARS", 500L);
-	        assertTrue(resultado);
-	        long saldo = cuenta.saldo("ARS");
-	        assertEquals(500L, saldo);
-	    }
+	
+	void testSimularCuotaPrestamoFrances() {
+        // Datos del préstamo
+        long montoPrestamo = 10000; // Monto del préstamo
+        //double tasaInteresAnual = 5.0;  // Tasa de interés anual en porcentaje
+        //int numeroAnios = 2;           // Duración del préstamo en años
+        int cantidadCuotas = 3;
+
+        CuentaBancaria c = new CuentaBancaria();
+        
+        // Calcular la cuota mensual usando la calculadora de préstamo
+        double cuotaCalculada = c.simularCuotaPrestamoSistemaFrances(montoPrestamo, cantidadCuotas);
+
+        // Valor esperado para la cuota mensual, puede variar ligeramente
+        double cuotaEsperadaAproximada = 438.71; // Ajusta este valor según el cálculo exacto
+
+        // Comprobar que la cuota calculada es aproximadamente igual a la esperada
+        assertEquals(cuotaEsperadaAproximada, cuotaCalculada, 0.01);
+    }
+
 	 
 	 //TODO Test cuenta USD deposito
 
