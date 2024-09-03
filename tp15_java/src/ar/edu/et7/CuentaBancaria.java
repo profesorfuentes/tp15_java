@@ -34,7 +34,10 @@ public class CuentaBancaria extends AbstractCuentaBancaria {
             saldoArs += importe;
             persistencia.guardarSaldo(saldoArs, "ARS");
         } else if (moneda.equalsIgnoreCase("USD")) {
-            saldoUsd += importe;
+        	 long importeEnArs = Math.round(importe / ARS_TO_USD_RATE);
+        	 saldoArs += importeEnArs;
+        	 saldoUsd += importe;
+        	 persistencia.guardarSaldo(saldoArs, "ARS");
             persistencia.guardarSaldo(saldoUsd, "USD");
         } else {
             return false;
